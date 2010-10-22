@@ -1,4 +1,5 @@
 require 'csv'
+require 'date'
 
 module RmuEntranceExam
   TEST_FILE_NAME = 'student_availability.csv'
@@ -12,6 +13,11 @@ module RmuEntranceExam
     def StudentAvailability.from_csv_row(csv_row)
       student_availability = StudentAvailability.new
       student_availability.name = csv_row[0]
+      puts student_availability.name
+      puts 'monday'
+      student_availability.monday_times = StudentAvailability.times_from_availability_column(csv_row[1])
+      puts 'wednesday'
+      student_availability.wednesday_times = StudentAvailability.times_from_availability_column(csv_row[2])
       student_availability
     end
     def StudentAvailability.load_csv_file(csv_file=RmuEntranceExam::TEST_FILE_NAME)
@@ -19,7 +25,11 @@ module RmuEntranceExam
       loaded_file[1..-1].map {|row| StudentAvailability.from_csv_row(row)}
     end
     def StudentAvailability.times_from_availability_column(availability_column)
-      'Times not parsed yet'
+      availability_column.split(',').map do |s|
+        time_part = s.split('(')[0]
+        puts "[#{time_part}] [#{s}]"
+        DateTime.parse(time_part).hour
+      end
     end
  end
 end
