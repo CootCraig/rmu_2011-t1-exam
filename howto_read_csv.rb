@@ -3,7 +3,7 @@ data_file = 'student_availability.csv'
 row_count = 0
 CSV.foreach(data_file) do |row|
   row_count += 1
- puts "row.class=#{row.class} row.length=#{row.length}  === #{row.to_s}"
+ puts "#{row_count-1}) row.class=#{row.class} row.length=#{row.length}  === #{row.to_s}"
 end
 puts "#{row_count} rows"
 =begin

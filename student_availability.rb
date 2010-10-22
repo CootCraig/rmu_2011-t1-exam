@@ -3,6 +3,7 @@ require 'csv'
 module RmuEntranceExam
   TEST_FILE_NAME = 'student_availability.csv'
   class StudentAvailability
+    attr_accessor :name, :monday_times, :wednesday_times
     def initialize
       @name = ''
       @monday_times = []
@@ -10,7 +11,8 @@ module RmuEntranceExam
     end
     def StudentAvailability.from_csv_row(csv_row)
       student_availability = StudentAvailability.new
-      student_availability.name = row[0]
+      student_availability.name = csv_row[0]
+      student_availability
     end
     def StudentAvailability.load_csv_file(csv_file=RmuEntranceExam::TEST_FILE_NAME)
       loaded_file = CSV.read(csv_file)
