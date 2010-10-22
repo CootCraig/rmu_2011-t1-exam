@@ -1,7 +1,7 @@
 require 'csv'
 
 module RmuEntranceExam
-  TEST_FILE_NAME = ''
+  TEST_FILE_NAME = 'student_availability.csv'
   class StudentAvailability
     def initialize
       @name = ''
