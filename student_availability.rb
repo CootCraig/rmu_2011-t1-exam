@@ -5,7 +5,7 @@ module RmuEntranceExam
   TEST_FILE_NAME = 'student_availability.csv'
   class StudentAvailability
     attr_accessor :name, :monday_times, :wednesday_times
-    @@debug_print = true
+    @@debug_print = false
     def initialize
       @name = ''
       @monday_times = []

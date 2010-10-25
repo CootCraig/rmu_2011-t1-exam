@@ -67,4 +67,23 @@ describe RmuEntranceExam::RmuSchedule do
       (rs_lower <=> rs_higher).should == -1
     end
   end
+  describe "array.sort" do
+    rs_1 = RmuEntranceExam::RmuSchedule.new
+    rs_2 = RmuEntranceExam::RmuSchedule.new
+    rs_3 = RmuEntranceExam::RmuSchedule.new
+    rs_4 = RmuEntranceExam::RmuSchedule.new
+    
+    rs_1.monday_student_list = ['studa','studb']
+    rs_1.wednesday_student_list = ['studb']
+    rs_2.monday_student_list = ['studa','studb']
+    rs_2.wednesday_student_list = ['studa','studb']
+    [rs_2,rs_1].sort.should == [rs_1,rs_2]
+    [rs_1,rs_2].sort.should == [rs_1,rs_2]
+
+    rs_3.monday_student_list = ['studa','studb','studc']
+    rs_3.wednesday_student_list = ['studa','studb']
+    rs_4.monday_student_list = ['studa','studb','studc']
+    rs_4.wednesday_student_list = ['studa','studb','studc']
+    [rs_4,rs_3,rs_2,rs_1].sort.should == [rs_1,rs_2,rs_3,rs_4]
+  end
 end
