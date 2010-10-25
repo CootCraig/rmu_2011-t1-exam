@@ -42,5 +42,11 @@ module RmuEntranceExam
       end
       @possible_schedules_sorted.sort!
     end
+    def print_day_roster(filename,hour_edt,student_list)
+      File.open(filename,"w") do |file|
+        file.puts "#{hour_edt} EDT"
+        student_list.sort.each {|name| file.puts "#{name}"}
+      end
+    end
   end
 end
