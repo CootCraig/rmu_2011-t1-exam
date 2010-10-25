@@ -23,22 +23,18 @@ module RmuEntranceExam
       # First comparison is how many students are attending at least
       # one class. The maximum count will be reached when every student
       # attends at least one once.
-      my_count = (monday_student_list | wednesday_student_list).length
-      other_count = (other.monday_student_list | other.wednesday_student_list).length
-      if my_count > other_count
+      if student_count > other.student_count
         1
-      elsif my_count < other_count
+      elsif student_count < other.student_count
         -1
       else
         # Second comparison is the number of students on Monday plus
         # the number of students on Tuesday.  A student attending both
         # nights is counted twice. The maximum count will be reached
         # when every student can attend both nights.
-        my_count = monday_student_list.length + wednesday_student_list.length
-        other_count = other.monday_student_list.length + other.wednesday_student_list.length
-        if my_count > other_count
+        if weekly_student_class_count > other.weekly_student_class_count
           1
-        elsif my_count < other_count
+        elsif weekly_student_class_count < other.weekly_student_class_count
           -1
         else
           # Third comparison is on the difference of the number of
