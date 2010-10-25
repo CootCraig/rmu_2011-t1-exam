@@ -37,14 +37,14 @@ describe RmuEntranceExam::StudentAvailability do
     it 'has read available times' do
       # [0] Monday: "8:00 am EDT (12:00 UTC), 12:00 pm EDT (16:00 UTC)"
       # [0] Wednesday: "8:00 am EDT (12:00 UTC), 12:00 pm EDT (16:00 UTC)"
-      students[0].monday_times[0].should == 8
-      students[0].monday_times[1].should == 12
-      students[0].wednesday_times[0].should == 8
-      students[0].wednesday_times[1].should == 12
+      students[0].monday_times[0].should == "8:00 am EDT (12:00 UTC)"
+      students[0].monday_times[1].should == "12:00 pm EDT (16:00 UTC)"
+      students[0].wednesday_times[0].should == "8:00 am EDT (12:00 UTC)"
+      students[0].wednesday_times[1].should == "12:00 pm EDT (16:00 UTC)"
 
-      students[17].monday_times[2].should == 17
-      students[17].monday_times[3].should == 18
-      students[17].wednesday_times[1].should == 18
+      students[17].monday_times[2].should == "5:00 pm EDT (21:00 UTC)"
+      students[17].monday_times[3].should == "6:00 pm EDT (22:00 UTC)"
+      students[17].wednesday_times[1].should == "6:00 pm EDT (22:00 UTC)"
     end
   end
 end

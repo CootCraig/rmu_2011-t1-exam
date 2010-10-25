@@ -28,11 +28,9 @@ module RmuEntranceExam
       loaded_file[1..-1].map {|row| StudentAvailability.from_csv_row(row)}
     end
     def StudentAvailability.times_from_availability_column(availability_column)
-      availability_column.split(',').map do |s|
-        time_part = s.split('(')[0]
-        puts "[#{time_part}] [#{s}]" if @@debug_print
-        DateTime.parse(time_part).hour
-      end
+      time_array = availability_column.split(',').collect {|aTime| aTime.strip}
+      puts time_array if @@debug_print
+      time_array
     end
  end
 end
