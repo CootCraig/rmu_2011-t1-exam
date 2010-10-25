@@ -4,6 +4,10 @@ describe RmuEntranceExam::RmuRoster do
     @aExam = RmuEntranceExam::RmuRoster.new
   end
   describe '#initialize' do
+    it 'Has empty array possible_shedules_sorted' do
+      @aExam.possible_shedules_sorted.class.should == array
+      @aExam.possible_shedules_sorted.length.should == 0
+    end
     it 'has availability for all students' do
       @aExam.availability_for_all_students.class.should == Array
       @aExam.availability_for_all_students[0].class.should == RmuEntranceExam::StudentAvailability
