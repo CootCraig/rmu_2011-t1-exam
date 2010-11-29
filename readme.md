@@ -4,6 +4,8 @@ My solution for a Ruby Mendicant University entrance exam.
 I didn't actually apply, but found this to be a useful exercise for
 practicing Ruby.  [Information at](http://blog.majesticseacreature.com/last-minute-rmu-exam-submissions)
 
+Problem instructions in the file instructions.pdf
+
 Running the solution program
 ----------------------------
 
